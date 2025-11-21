@@ -2,6 +2,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import venueReducer from './venueSlice';
 import avReducer from './avSlice';
+import mealsReducer from './mealsSlice';
 
 /*
 Create the Redux store with the configureStore() function from @reduxjs/toolkit
@@ -14,5 +15,6 @@ export default configureStore({
   reducer: {
     venue: venueReducer,
      av: avReducer,
+     meals: mealsReducer,
   },
 });
