@@ -1,7 +1,14 @@
 // venueSlice.js
+// to slice the Redux state related to venue selection using createSlice from @reduxjs/toolkit.
 import { createSlice } from "@reduxjs/toolkit";
 
 export const venueSlice = createSlice({
+    /*
+    The initial state consists of an array of venue objects, 
+    each representing a rentable room in the venue. 
+    A venue object has properties such as the thumbnail image, 
+    name, cost, and quantity.
+    */
   name: "venue",
   initialState: [
     {
@@ -37,7 +44,11 @@ export const venueSlice = createSlice({
   
   ],
   reducers: {
-   
+    // reducer functions incrementQuantity and decrementQuantity 
+    // to manage the number of venue items in the state.
+    
+    // This function handles incrementing the quantity of a venue item in the state. It receives an action containing the index of the item to be incremented.
+
     incrementQuantity: (state, action) => {
       const { payload: index } = action;
       if (state[index]) {
@@ -46,6 +57,9 @@ export const venueSlice = createSlice({
         state[index].quantity++;
       }
     },
+     // This function handles decrementing the quantity of a venue item in the state.
+     // It receives an action containing the index of the item to be decremented.
+    
     decrementQuantity: (state, action) => {
       const { payload: index } = action;
       if (state[index] && state[index].quantity > 0) {
